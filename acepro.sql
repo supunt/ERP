@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `items` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `itemname` varchar(150) NOT NULL,
   `vendorID` varchar(45) DEFAULT NULL,
   `description` varchar(255) DEFAULT NULL,
@@ -46,7 +46,7 @@ CREATE TABLE `items` (
   `exfield3` varchar(200) DEFAULT NULL,
   `createddate` datetime DEFAULT NULL,
   `updatedate` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 
 --
 -- Dumping data for table `items`
@@ -64,7 +64,7 @@ INSERT INTO `items` (`id`, `itemname`, `vendorID`, `description`, `extraDescript
 --
 
 CREATE TABLE `locationtrans` (
-  `ID` int(11) NOT NULL,
+  `ID` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `PartID` int(11) NOT NULL,
   `WhsID` int(11) NOT NULL,
   `LocID` int(11) NOT NULL,
@@ -74,7 +74,7 @@ CREATE TABLE `locationtrans` (
   `Adjustmenst` float NOT NULL,
   `Allocations` float NOT NULL,
   `Last_Txn_Date` date NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+);
 
 -- --------------------------------------------------------
 
@@ -83,10 +83,10 @@ CREATE TABLE `locationtrans` (
 --
 
 CREATE TABLE `location_master` (
-  `id` int(11) UNSIGNED NOT NULL,
+  `id` int(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `code` varchar(20) DEFAULT NULL,
   `name` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ;
 
 -- --------------------------------------------------------
 
@@ -95,21 +95,23 @@ CREATE TABLE `location_master` (
 --
 
 CREATE TABLE `purchaseorder` (
-  `pid` int(20) NOT NULL,
+  `pid` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `vendorno` varchar(20) NOT NULL,
   `warehousecode` varchar(20) NOT NULL,
   `adddate` datetime NOT NULL,
   `updatedate` datetime NOT NULL,
   `status` char(1) DEFAULT 'N'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ;
 
 --
 -- Dumping data for table `purchaseorder`
 --
 
-INSERT INTO `purchaseorder` (`pid`, `vendorno`, `warehousecode`, `adddate`, `updatedate`, `status`) VALUES
-(8, '20', 'code1', '2017-07-05 14:45:58', '2017-07-05 14:45:58', NULL);
+INSERT INTO `purchaseorder` (`vendorno`, `warehousecode`, `adddate`, `updatedate`, `status`) VALUES
+('20', 'code1', '2017-07-05 14:45:58', '2017-07-05 14:45:58', NULL);
 
+INSERT INTO `purchaseorder` (`vendorno`, `warehousecode`, `adddate`, `updatedate`, `status`) VALUES
+('20', 'code1', '2017-07-05 14:45:58', '2017-07-05 14:45:58', NULL);
 -- --------------------------------------------------------
 
 --
@@ -117,27 +119,31 @@ INSERT INTO `purchaseorder` (`pid`, `vendorno`, `warehousecode`, `adddate`, `upd
 --
 
 CREATE TABLE `purchaseorderetails` (
-  `podid` int(20) NOT NULL,
-  `pid` int(20) NOT NULL,
+  `podid` int(11) NOT NULL,
+  `pid` int(11) NOT NULL,
   `partnumber` varchar(20) NOT NULL,
   `location` varchar(50) NOT NULL,
   `quantity` varchar(50) NOT NULL,
   `cost` varchar(50) NOT NULL,
   `duedate` varchar(50) NOT NULL,
-  `requestedqty` varchar(50) NOT NULL,
-  `receptquantity` varchar(50) NOT NULL,
+  `requestedqty` integer DEFAULT 0,
+  `receptquantity` integer DEFAULT 0,
   `receiveddate` varchar(50) DEFAULT '',
-  `linestatus` char(11) DEFAULT ''
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `linestatus` integer default 1,
+
+  CONSTRAINT pk_podid_pid PRIMARY KEY (`pid`,`podid`),
+  CONSTRAINT fk_pid FOREIGN KEY (pid)
+  REFERENCES purchaseorder(pid)
+);
 
 --
 -- Dumping data for table `purchaseorderetails`
 --
 
-INSERT INTO `purchaseorderetails` (`podid`, `pid`, `partnumber`, `location`, `quantity`, `cost`, `duedate`, `requestedqty`, `receptquantity`, `receiveddate`, `linestatus`) VALUES
-(1, 8, '4', '', '100', '4500', '2017-07-05', 'null', 'null', NULL, NULL),
-(2, 8, '5', '', '25', '1125', '2017-07-05', 'null', 'null', NULL, NULL),
-(20, 8, '3', '', '25', '2125', '2017-07-05', 'null', 'null', NULL, NULL);
+INSERT INTO `purchaseorderetails` (`podid`, `pid`, `partnumber`, `location`, `quantity`, `cost`, `duedate`, `linestatus`) VALUES
+(0, 1, '4', '', '100', '4500', '2017-07-05',1),
+(1, 1, '5', '', '25', '1125', '2017-07-05',1),
+(0, 2, '3', '', '25', '2125', '2017-07-05',1);
 
 -- --------------------------------------------------------
 
@@ -146,7 +152,7 @@ INSERT INTO `purchaseorderetails` (`podid`, `pid`, `partnumber`, `location`, `qu
 --
 
 CREATE TABLE `transaction_history` (
-  `id` int(11) UNSIGNED NOT NULL,
+  `id` int(11) UNSIGNED NOT NULL PRIMARY KEY,
   `part_number` varchar(50) DEFAULT NULL,
   `warehouse_code` varchar(50) DEFAULT NULL,
   `location_code` varchar(50) DEFAULT NULL,
@@ -156,7 +162,7 @@ CREATE TABLE `transaction_history` (
   `ref_number` int(11) DEFAULT NULL,
   `line_number` int(11) DEFAULT NULL,
   `careted_date` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+);
 
 -- --------------------------------------------------------
 
@@ -165,7 +171,7 @@ CREATE TABLE `transaction_history` (
 --
 
 CREATE TABLE `vendermaster` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `vname` varchar(150) NOT NULL,
   `description` varchar(255) DEFAULT NULL,
   `address1` varchar(150) DEFAULT NULL,
@@ -180,7 +186,7 @@ CREATE TABLE `vendermaster` (
   `extrafield3` varchar(100) DEFAULT NULL,
   `createdate` datetime DEFAULT NULL,
   `updateddate` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 
 --
 -- Dumping data for table `vendermaster`
@@ -198,109 +204,9 @@ INSERT INTO `vendermaster` (`id`, `vname`, `description`, `address1`, `address2`
 --
 
 CREATE TABLE `warehouse` (
-  `ID` int(11) NOT NULL,
+  `ID` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `Whse` varchar(10) NOT NULL,
   `Description` varchar(200) NOT NULL,
   `Alloc_Flag` char(1) NOT NULL,
   `Extrafld` varchar(200) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `items`
---
-ALTER TABLE `items`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `locationtrans`
---
-ALTER TABLE `locationtrans`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `location_master`
---
-ALTER TABLE `location_master`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `purchaseorder`
---
-ALTER TABLE `purchaseorder`
-  ADD PRIMARY KEY (`pid`);
-
---
--- Indexes for table `purchaseorderetails`
---
-ALTER TABLE `purchaseorderetails`
-  ADD PRIMARY KEY (`podid`);
-
---
--- Indexes for table `transaction_history`
---
-ALTER TABLE `transaction_history`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `vendermaster`
---
-ALTER TABLE `vendermaster`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `warehouse`
---
-ALTER TABLE `warehouse`
-  ADD PRIMARY KEY (`ID`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `items`
---
-ALTER TABLE `items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
---
--- AUTO_INCREMENT for table `locationtrans`
---
-ALTER TABLE `locationtrans`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `location_master`
---
-ALTER TABLE `location_master`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT for table `purchaseorder`
---
-ALTER TABLE `purchaseorder`
-  MODIFY `pid` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
---
--- AUTO_INCREMENT for table `purchaseorderetails`
---
-ALTER TABLE `purchaseorderetails`
-  MODIFY `podid` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
---
--- AUTO_INCREMENT for table `transaction_history`
---
-ALTER TABLE `transaction_history`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
---
--- AUTO_INCREMENT for table `vendermaster`
---
-ALTER TABLE `vendermaster`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
---
--- AUTO_INCREMENT for table `warehouse`
---
-ALTER TABLE `warehouse`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+);

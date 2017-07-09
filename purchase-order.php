@@ -477,7 +477,8 @@
 						if (response.is_error)
 						{
 							saveSuccess = false;
-							alert("Error::Order detail insert failed : "+response.error);
+							alert("Error::Order detail insert failed : "+response.error + "\n" + response.db_error);
+							console.log(response.db_error);
 							// ROLL BACK ENTIRE ORDER TODO
 							return;
 						}

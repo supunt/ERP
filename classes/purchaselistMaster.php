@@ -25,7 +25,7 @@ if($_POST['action'] == 'add' || $_POST['action'] == 'update') {
 
 
 	if($_POST['action'] == 'add') {
-		$query = "INSERT into purchaseorderetails () VALUES('".$podid."','".$pid."', '". $partnumber ."','". $location ."','". $quantity ."','". $cost ."','". $duedate ."','null','null' )";
+		$query = "INSERT into purchaseorderetails (podid,pid,partnumber,location,quantity,cost,duedate,	linestatus) VALUES('".$podid."','".$pid."', '". $partnumber ."','". $location ."','". $quantity ."','". $cost ."','". $duedate ."',1)";
 
 	}
 	else {
@@ -44,7 +44,8 @@ if ($conn->query($query) == true) {
 } 
 else {
     $response['is_error'] = true;
-	$response['error'] = "Error::Action failed, Contact administrator [Category tuncate 4].(Order id :".$postData['oid'].")";
+	$response['error'] = "Error::Action failed, Contact administrator [Category insert 4].(Order id :".$postData['oid'].")";
+	$response['db_error'] = $conn->error;
 	echo json_encode($response);
 	return;
 }
