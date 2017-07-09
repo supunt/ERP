@@ -58,6 +58,7 @@ if ($conn->query($query) == TRUE) {
 } else {
     $response['is_error'] = true;
     $response['error'] = "ERROR::DB operation failed.";
+    $response['db_error'] = $conn->error;
    	echo json_encode($response);
 }
 $conn->close();

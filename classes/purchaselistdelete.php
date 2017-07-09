@@ -34,6 +34,7 @@ if ($conn->query($query) == TRUE) {
 else {
     $response['is_error'] = true;
 	$response['error'] = "Error::Action failed, Contact administrator [Category tuncate 4].(Order id :".$oid.")";
+	$response['db_error'] = $conn->error;
 	echo json_encode($response);
 	return;
 }

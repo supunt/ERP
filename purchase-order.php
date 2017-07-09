@@ -408,7 +408,10 @@
 						 	return;
 						 }
 						if (response.is_error)
+						{
 							alert("Error::"+(update?"Update":"Insert")+" failed : "+response.error);
+							console.log(response.db_error);
+						}
 						else
 						{
 							var orderId = response.row_num;
@@ -439,6 +442,7 @@
 						if (response.is_error)
 						{
 							alert("Error::Order deletion failed : "+response.error);
+							console.log(response.db_error);
 							return;
 						}
 					}
@@ -477,7 +481,7 @@
 						if (response.is_error)
 						{
 							saveSuccess = false;
-							alert("Error::Order detail insert failed : "+response.error + "\n" + response.db_error);
+							alert("Error::Order detail insert failed : "+response.error);
 							console.log(response.db_error);
 							// ROLL BACK ENTIRE ORDER TODO
 							return;
