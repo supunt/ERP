@@ -1,0 +1,96 @@
+body {font-family: Verdana, Arial, Helvetica, sans-serif; font-size:12px;}
+.wrapper{ width:100%; float:left;}
+.contaner{ width:1200px; display:block; margin: 20px auto;}
+.sosheader{  float:left; border:#CCCCCC solid 1px; padding: 20px 0; border-bottom:none; background:#f1f3f4;}
+
+/* Style the tab */
+div.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+div.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 13px;
+	font-weight:600;
+}
+
+/* Change background color of buttons on hover */
+div.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+div.tab button.active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 20px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+	float:left;
+}
+
+.row{ width:100%; float: left; padding: 10px 30px;}
+.row .title{ width:150px; float: left;}
+.row .input{ width:1000px; float: left;}
+
+
+.rowh{ width:100%; float: left; padding: 10px 30px;}
+.rowh .htitle{ width:150px; float: left;}
+.rowh .hinput{ width:1000px; float: left;}
+
+/* form  */
+.row input{ width:500px;}
+.row textarea{ width:500px;}
+.row select{ width:200px;}
+.row input{ width:500px;}
+.row .inputsml{ width:150px;}
+.row .inputmid{ width:250px;}
+
+
+/* Grid*/
+.gdheader{ width:100%; float:left; padding: 0px 0px; height:auto; border:#666666 solid 1px;}
+.gdbody{width:100%; float:left; display:block; height:500px;}
+
+.partnumberh{ width:90px; float:left; background:#ebeced; padding: 8px 4px; border-right:#999999 solid 1px;}
+.whscodeh{ width:100px; float:left;background:#ebeced; padding: 8px 4px;border-right:#999999 solid 1px;}
+.descriptionh{ width:150px; float:left;background:#ebeced; padding: 8px 4px;border-right:#999999 solid 1px;}
+.uomavlqtyh{ width:117px; float:left;background:#ebeced; padding: 8px 4px;border-right:#999999 solid 1px;}
+.qtyh{ width: 60px; float:left;background:#ebeced; padding: 8px 4px;border-right:#999999 solid 1px;}
+.costh{ width: 60px; float:left;background:#ebeced; padding: 8px 4px;border-right:#999999 solid 1px;}
+.totalh{ width: 60px; float:left;background:#ebeced; padding: 8px 4px;border-right:#999999 solid 1px;}
+.freighth{ width: 60px; float:left;background:#ebeced; padding: 8px 4px;border-right:#999999 solid 1px;}
+.cfcosth{ width: 60px; float:left;background:#ebeced; padding: 8px 4px;border-right:#999999 solid 1px;}
+.marginh{ width: 60px; float:left;background:#ebeced; padding: 8px 4px;border-right:#999999 solid 1px;}
+.salesh{ width: 60px; float:left;background:#ebeced; padding: 8px 4px;border-right:#999999 solid 1px;}
+.sellingh{ width: 60px; float:left;background:#ebeced; padding: 8px 4px;border-right:#999999 solid 1px;}
+.linenotesh{ width: 120px; float:left;background:#ebeced; padding: 8px 4px; }
+
+.partnumber{ width:90px; float:left;border:#CCCCCC solid 1px; border-top: none;padding: 8px 4px;border-right:none;}
+.whscode{ width:100px; float:left;border:#CCCCCC solid 1px; border-top: none;padding: 8px 4px; border-right:none;}
+.description{ width:150px; float:left;border:#CCCCCC solid 1px; border-top: none;padding: 8px 4px;border-right:none;}
+.uomavlqty{ width:116px; float:left;border:#CCCCCC solid 1px; border-top: none;padding: 8px 4px;border-right:none;}
+.qty{ width: 60px; float:left;border:#CCCCCC solid 1px; border-top: none;padding: 8px 4px;border-right:none;}
+.cost{ width: 60px; float:left;border:#CCCCCC solid 1px; border-top: none;padding: 8px 4px;border-right:none;}
+.total{ width: 60px; float:left;border:#CCCCCC solid 1px; border-top: none;padding: 8px 4px;border-right:none;}
+.freight{ width: 60px; float:left;border:#CCCCCC solid 1px; border-top: none;padding: 8px 4px;border-right:none;}
+.cfcost{ width: 60px; float:left;border:#CCCCCC solid 1px; border-top: none;padding: 8px 4px;border-right:none;}
+.margin{ width: 60px; float:left;border:#CCCCCC solid 1px; border-top: none;padding: 8px 4px;border-right:none;}
+.sales{ width: 60px; float:left;border:#CCCCCC solid 1px; border-top: none;padding: 8px 4px;border-right:none;}
+.selling{ width: 60px; float:left;border:#CCCCCC solid 1px; border-top: none;padding: 8px 4px;border-right:none;}
+.linenotes{ width: 120px; float:left;border:#CCCCCC solid 1px; border-top: none;padding: 8px 4px;}
+
+
+

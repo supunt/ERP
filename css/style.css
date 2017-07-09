@@ -1,0 +1,365 @@
+body, select, input, textarea {
+    margin:0;
+    padding:0;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+}
+
+.container{ width:1200px; padding:5px 20px; margin:0 auto; background:#fff; float:left }
+.footer{ width:1000px; float:left; padding: 20px 20px; text-align:center; background:#7eb8ef; }
+.delete{ width: auto; float:left; padding:5px 10px; text-decoration:none; color:#666666; border:#CCCCCC solid 1px; background:#ebebeb;}
+
+
+.gsection{ width:145px; float:left; height:auto; padding:5px 5px;}
+.gsectionh{ width:145px; float:left; height:auto; padding:5px 5px; background:#CCCCCC}
+.delrow{ width:100%; display:block; float:left;}
+.gsectionbtn{width:60px; float:left; height:auto; padding:5px 5px;}
+h1{ color:#0033CC}
+h2{  padding: 10px 10px; margin: 0 0 0 0; color:#022d59; font-size:16px; 
+	background: #1077e0; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(#1077e0, #98c6f5); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#1077e0, #98c6f5); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#1077e0, #98c6f5); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#1077e0, #98c6f5); /* Standard syntax */}
+/*
+.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+.menu li {
+    float: left;
+}
+
+.menu li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover 
+.menu li a:hover {
+    background-color: #111;
+}*/
+.itemEntry{
+    padding: 20px;
+    float:left;
+    margin: 5px 0;
+    border:#999999 solid 1px;
+    box-shadow: 2px 2px #e0e8f0;
+    background:#ebeff3;
+}
+
+.poreceitpsForm {
+    padding: 20px;
+    width: 85%;
+    float:left;
+    margin: 5px 0;
+    border:#999999 solid 1px;
+    box-shadow: 2px 2px #e0e8f0;
+    background:#ebeff3;
+}
+
+.vendorMasForm {
+	padding: 20px;
+	float:left;
+	margin: 5px 0;
+	border:#999999 solid 1px;
+	box-shadow: 2px 2px #e0e8f0;
+	background:#ebeff3;
+}
+.vendorMasForm2{padding: 20px;
+	float:left; background:#ebeff3;}
+
+.list-data{	padding: 40px;
+	float:left;}
+
+form .row {
+	width: 100%;
+    padding: 15px;
+}
+
+form .title {
+	width: 30%;
+	float: left;
+	padding:3px 0 3px 0;
+}
+
+form .input {
+	width: 70%;
+    float: left;
+	padding:3px 0 3px 0;
+	
+}
+
+form .input.xwide{
+    width: 25%;
+    float: left;
+    padding:3px 0 3px 0;
+
+}
+
+
+.testTable {
+  display: table;
+  margin: 0px;
+  padding: 0px;
+}
+
+.testRow {
+  display: table-row;
+}
+
+.testRow > span {
+  list-style:none;
+  display: table-cell;
+  border: 1px solid #000;
+  padding: 2px 6px;
+}
+
+.testHeader {
+  display: table-header-group;
+}
+
+.testHeader span {
+  background-color: #ccc;
+}
+
+.testBody {
+  display: table-row-group;
+}
+
+.gird-menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgba(51, 51, 51, 0.32);
+}
+
+.gird-menu li {
+    float: left;
+}
+
+.gird-menu li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+
+
+.grid-data ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.grid-data li {
+    float: left;
+}
+
+.grid-data li {
+    display: block;
+    color: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.button{
+    width: auto;
+    float:left;
+    padding:5px 10px;
+    text-decoration:none;
+    color:#666666;
+    border:#CCCCCC
+    solid 1px;
+    background:#ebebeb;
+    margin:0 10px 0 10px;
+    cursor: pointer;
+}
+
+/** Purchase Order Receipt **/
+.button-right{
+    width: auto;
+    float:right;
+    padding:1px 10px;
+    text-decoration:none;
+    color:#666666;
+    border:#CCCCCC
+    solid 1px;
+    background:#ebebeb;
+    margin:0 10px 0 10px;
+    cursor: pointer;
+}
+
+.po-message {
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+    color: #4398ff;
+    margin-left:70px;
+}
+
+.form-buttons {
+    padding:10px 20px !important;
+}
+
+.form-buttons:hover {
+    font-weight: 800;
+}
+
+
+.msg-po-number {
+    float: left;
+    color: darkred;
+}
+
+/*table{
+    display: table;
+    background-color: white;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-bottom: 20px;
+    width: 80%;
+    border: 1px solid #e5e5e5;
+}
+
+thead tr {
+    font-size: 13px;
+    text-align: center;
+    font-weight: 400;
+    border: 1px solid #e5e5e5;
+}
+tbody tr td {
+    border: 1px solid #e5e5e5;
+    text-align: center;
+}*/
+
+#po-details, table{
+    display: table;
+    background-color: white;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-bottom: 20px;
+    width: 800px;
+    border: 1px solid #e5e5e5;
+}
+
+#po-details, thead tr {
+    font-size: 13px;
+    text-align: center;
+    font-weight: 400;
+    border: 1px solid #e5e5e5;
+}
+#po-details, tbody tr td {
+    border: 1px solid #e5e5e5;
+    text-align: center;
+    cursor: pointer;
+}
+
+
+.pull-left {
+    float: left;
+}
+
+.qty_y {
+    background: #bbf7b5;
+}
+
+.qty_n {
+    background: #f7eab5;
+}
+
+.edit-row {
+    top: 400px;
+    position: absolute;
+    left: 57px;
+    background: lightgray;
+    height: 32px;
+    width: 780px;
+    text-align: center;
+    padding: 20px 10px 10px 10px;
+    box-shadow: 2px 2px 2px 0px black;
+    display: none;
+}
+
+.po-done-edit {
+    width: auto;
+    float: right;
+    padding: 1px 10px;
+    text-decoration: none;
+    color: #666666;
+    border: #CCCCCC solid 1px;
+    background: #ebebeb;
+    margin: 0 10px 0 10px;
+    cursor: pointer;
+}
+
+.dropbtn {
+    background-color: #0a71d1;
+    color: white;
+    padding: 10px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #01529f;
+}
+
+.vendorMasForm input{ width:250px;}
+.vendorMasForm textarea{ width:250px; height:60px}
+
+
+/* new Style */
+.OrderItems{ width:100%; float:left; padding: 20px 0 50px 0;}
+.gridhedder{ width: 100%; float:left;}
+.gridcontent{ width: 100%; float:left;}
+.tithed{ width: 200px; float:left;}
+.titcon{ width: 200px; float:left;}
+
+.gridcontent input{ width: 180px;}
+.gridcontent #buttionBox input{ width: 100px;}
+.gridbtnbot1{ width: 930px; float:left; padding: 0px 0 0 0;}
+.gridbtnbot1 input{ width: 150px; float:right; margin: 0 10px 0 0;}
+.gridbtnbot2{ width: 930px; float:left; padding: 30px 0;}
+.gridbtnbot2 input{ width: 150px; float:right; margin: 0 10px 0 0;}
+#itemtable input{ width:30px;}
