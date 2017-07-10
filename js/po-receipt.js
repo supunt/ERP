@@ -248,7 +248,8 @@ $(function () {
                 data:  JSON.stringify(data)
             },
             success: function(data){
-                if (data != 'error') {
+                var response = JSON.parse(data);
+                if (response.is_error == 'false') {
                     $('.po-message').html('Purchase order updated successfully.');
                     Clear();
                 } else {
@@ -274,15 +275,15 @@ $(function () {
 
         if ( parseFloat(req_qty) == parseFloat(res_qty) ) {
 
-            return 'Y';
+            return 1;
 
         } else if ( parseFloat(req_qty) > parseFloat(res_qty) ) {
 
-            return 'N';
+            return 0;
 
         } else {
 
-            return '';
+            return -1;
 
         }
     }

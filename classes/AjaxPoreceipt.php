@@ -150,7 +150,8 @@ function save( $conn, $data ) {
             "receptquantity ='". $row->receptquantity ."',".
             "receiveddate ='". $row->receiveddate ."',".
             "linestatus ='". $row->linestatus ."' ".
-            "WHERE podid =".$row->podid;
+            "WHERE podid ='".$row->podid."' ".
+            "AND pid ='".$row->pid."';";
 
         if ($conn->query($sql) == true) {
 
@@ -174,7 +175,9 @@ function save( $conn, $data ) {
     }
 
     if ($error) {
-        echo "error";
+        $retstatus['is_error'] = true;
+        $retstatus['error'] = $conn->error;
+        echo json_encode($retstatus);
     } else {
 
         if ( $order_complete ) {
@@ -183,7 +186,8 @@ function save( $conn, $data ) {
 
         }
 
-        echo "done";
+        $retstatus['is_error'] = "false";
+        echo json_encode($retstatus);
     }
 }
 
