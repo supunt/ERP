@@ -159,7 +159,7 @@ function save( $conn, $data ) {
             $error = true;
         }
 
-        if ( $row->linestatus == 'Y' ) {
+        if ( $row->linestatus == 1 ) {
 
             if ( $order_complete ) {
 
