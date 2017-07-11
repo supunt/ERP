@@ -517,9 +517,11 @@
 
 		if (saveSuccess)
 		{
-			alert("Order saved successfully.");
-			window.location.href = "purchase-order.php?manipulate=true&orderId="+orderId;
-			
+			alert("Order saved successfully. [ID - "+ orderId + "]");
+			if (update)
+				window.location.href = "purchase-order.php?manipulate=true&orderId="+orderId;
+			else
+				window.location.href = "purchase-order.php";
 		}
 	}
 	//--------------------------------------------------------------------
