@@ -170,6 +170,7 @@
         table.rows[row].cells[6].innerHTML = ird.value;
 
         table.rows[row].cells[5].innerHTML = parseFloat(table.rows[row].cells[3].innerHTML) * parseFloat(table.rows[row].cells[4].innerHTML);
+        clearItemEntry();
 	}
 	//--------------------------------------------------------------------
 	function cancelUpdate()
@@ -182,6 +183,7 @@
 
         var addBtn = document.getElementById('btnAddItem');
         addBtn.hidden = false;
+        clearItemEntry();
 	}
 	//--------------------------------------------------------------------
 	function addRow(dataTable){
@@ -213,6 +215,7 @@
 				row.cells[3].innerHTML = parseInt(row.cells[3].innerHTML) + parseInt(document.getElementById("itemQuantity").value);
 				row.cells[5].innerHTML = parseFloat(e.options[e.selectedIndex].value) * parseFloat(row.cells[3].innerHTML);
 				row.cells[6].innerHTML = document.getElementById("itemReqDate").value;
+				clearItemEntry();
 				return;
 			}
 		}
@@ -243,8 +246,26 @@
 
         var dateCell = row.insertCell(6);
         dateCell.innerHTML = document.getElementById("itemReqDate").value;
+        clearItemEntry();
 	};
-	
+	//--------------------------------------------------------------------
+	function clearItemEntry()
+	{
+		document.getElementById("unitPrice").value = '';
+		document.getElementById("itemQuantity").value = '';
+		document.getElementById("itemReqDate").value = '<?php echo date('Y-m-d');?>';
+		
+		var e = document.getElementById("itemList");
+
+        var opts = e.options;
+		for (var opt, j = 0; opt = opts[j]; j++) {
+			if (opt.value == -1) {
+				  e.selectedIndex = j;
+				  break;
+				}
+		}
+		onChangeItemList();
+	}
 	//--------------------------------------------------------------------
 	function swapBulkSelectionState(tableName,resetHeader)
 	{
