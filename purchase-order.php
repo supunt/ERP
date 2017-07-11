@@ -212,9 +212,7 @@
 			var row = table.rows[i];
 			if (row.cells[2].innerHTML  == e.options[e.selectedIndex].id)
 			{
-				row.cells[3].innerHTML = parseInt(row.cells[3].innerHTML) + parseInt(document.getElementById("itemQuantity").value);
-				row.cells[5].innerHTML = parseFloat(e.options[e.selectedIndex].value) * parseFloat(row.cells[3].innerHTML);
-				row.cells[6].innerHTML = document.getElementById("itemReqDate").value;
+				alert("Item already exist in list at row "+i);
 				clearItemEntry();
 				return;
 			}
@@ -239,10 +237,10 @@
         qtyCell.innerHTML = document.getElementById("itemQuantity").value;
 
         var priceCell = row.insertCell(4);
-        priceCell.innerHTML = e.options[e.selectedIndex].value;
+        priceCell.innerHTML = parseFloat(document.getElementById("unitPrice").value);
 
         var subTotCell = row.insertCell(5);
-        subTotCell.innerHTML = parseFloat(e.options[e.selectedIndex].value) * parseFloat(row.cells[3].innerHTML);
+        subTotCell.innerHTML = parseFloat(document.getElementById("unitPrice").value) * parseFloat(row.cells[3].innerHTML);
 
         var dateCell = row.insertCell(6);
         dateCell.innerHTML = document.getElementById("itemReqDate").value;
@@ -676,7 +674,7 @@
 				
 			</select>
 		</div>
-        <div class="titcon"><input id="unitPrice"  value="" readonly /></div>
+        <div class="titcon"><input id="unitPrice"  value="" /></div>
         <div class="titcon"><input id="itemQuantity" onChange="resetHighlightColor('itemQuantity')" type="text"/></div>
         <div class="titcon"><input id="itemReqDate" type="date" value='<?php echo date('Y-m-d');?>'  /></div>
         <div><input id="editingRow" type="hidden" value="-1"/></div> 
@@ -688,18 +686,7 @@
 		</div>
         </div>
         </div>
-		
-
-
-</div>	
-		
-
-	
-		 
-		
-		
-		
-
+	</div>	
 	    <table id="itemtable" border="1">
 			<tr>
 				<th><input type="checkbox" name="hdrchkbox" onClick="swapBulkSelectionState('itemtable',false)" /></th>  
