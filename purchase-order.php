@@ -127,7 +127,9 @@
 				  break;
 				}
 		}
-		onChangeItemList();
+		
+		var price = document.getElementById("unitPrice");
+        price.value = table.rows[selectedRow].cells[4].innerHTML;
 
 		var qty = document.getElementById("itemQuantity");
         qty.value = table.rows[selectedRow].cells[3].innerHTML;
@@ -162,6 +164,9 @@
         var row = Er.value;
 
         var table = document.getElementById('itemtable');
+
+        var price = document.getElementById("unitPrice");
+        table.rows[row].cells[4].innerHTML = price.value;
 
         var qty = document.getElementById("itemQuantity");
         table.rows[row].cells[3].innerHTML = qty.value;
